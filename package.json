@@ -1,0 +1,22 @@
+{
+  "name": "2dv513-a3",
+  "version": "1.0.0",
+  "description": "### Filip Mylläri ### Fredrik Strömbäck",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Strombach/2dv513-a3.git"
+  },
+  "author": "Filip Mylläri, Fredrik Strömbäck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Strombach/2dv513-a3/issues"
+  },
+  "homepage": "https://github.com/Strombach/2dv513-a3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
