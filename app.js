@@ -15,12 +15,13 @@ let connection = mysql.createConnection({
 
 connection.connect()
 
+//Routes
+app.use('/', require('./routes/loginRouter'))
+
 connection.query('SELECT * FROM movies', (err, rows, fields) => {
 	if (err) throw err
 
 	console.log(rows)
 })
-
-app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(expressPort, () => console.log(`Server running on port: ${expressPort}`))
