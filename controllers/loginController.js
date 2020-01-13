@@ -5,6 +5,8 @@ const db = require('../database/db')
 
 const loginController = {}
 
+loginController.home = (req, res, next) => res.send('/home')
+
 loginController.postLogin = async (req, res, next) => {
 
 	db.query('SELECT * FROM users WHERE username = ?', req.body.username, (err, rows, fields) => {
@@ -12,6 +14,7 @@ loginController.postLogin = async (req, res, next) => {
 
 		if (rows.length > 0) {
 			if (checkPassword(rows[0], req.body.password)) {
+				req.session.loggedIn = rows[0].userID
 				res.send('You are logged in<3')
 			} else {
 				res.send('Wrong Password')
@@ -20,6 +23,15 @@ loginController.postLogin = async (req, res, next) => {
 			res.send('No user found')
 		}
 	})
+}
+
+
+loginController.checkLoginStatus = (req, res, next) => {
+	if (req.session.loggedIn) {
+		res.send('Welcome Back')
+	} else {
+		next()
+	}
 }
 
 
