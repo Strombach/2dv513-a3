@@ -7,10 +7,17 @@ const session = require('express-session')
 const db = require('./database/db')
 const path = require('path')
 const logger = require('morgan')
-
+const hbs = require('express-hbs')
 
 const app = express()
 const expressPort = 3000
+
+app.engine('hbs', hbs.express4({
+	defaultLayout: path.join(__dirname, 'views', 'layouts', 'default'),
+	partialsDir: path.join(__dirname, 'views', 'partials')
+}))
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, 'views'))
 
 //Middleware
 app.use(express.urlencoded({ extended: false }))
@@ -32,6 +39,6 @@ app.use(session({
 }))
 
 //Routes
-app.use('/auth', require('./routes/loginRouter'))
+app.use('/', require('./routes/loginRouter'))
 
 app.listen(expressPort, () => console.log(`Server running on port: ${expressPort}`))

@@ -5,8 +5,8 @@ const router = express.Router()
 
 const controller = require('../controllers/loginController')
 
-router.get('/home', controller.checkLoginStatus, controller.home)
+router.get('/', controller.checkLoginStatus, controller.index)
 
-router.post('/', controller.postLogin)
+router.post('/auth', controller.postLogin)
 
 module.exports = router

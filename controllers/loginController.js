@@ -5,7 +5,7 @@ const db = require('../database/db')
 
 const loginController = {}
 
-loginController.home = (req, res, next) => res.send('/home')
+loginController.index = (req, res, next) => res.render('login/index')
 
 loginController.postLogin = async (req, res, next) => {
 
@@ -30,8 +30,7 @@ loginController.checkLoginStatus = (req, res, next) => {
 	if (req.session.loggedIn) {
 		res.send('Welcome Back')
 	} else {
-		res.redirect('/')
-		res.status(403)
+		next()
 	}
 }
 
