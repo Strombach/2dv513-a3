@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').config({ path: 'db.env' })
+
 const express = require('express')
 const session = require('express-session')
 const db = require('./database/db')
