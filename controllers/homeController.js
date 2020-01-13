@@ -5,8 +5,16 @@ const db = require('../database/db')
 
 const homeController = {}
 
-homeController.index = (req, res, next) => res.render('home/index')
+homeController.index = (req, res, next) => {
+	let user = req.session.loggedIn
 
+	db.query('SELECT * FROM scores WHERE uID = ?', user, async (err, rows, fields) => {
+		if (err) throw err
+		let locals = { data: rows }
+		console.log(locals.data)
+		res.render('home/index', { locals })
+	})
+}
 // loginController.postLogin = async (req, res, next) => {
 
 // 	db.query('SELECT * FROM users WHERE username = ?', req.body.username, async (err, rows, fields) => {

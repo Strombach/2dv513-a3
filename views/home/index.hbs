@@ -1,4 +1,13 @@
 <h1>Test Handlebars</h1>
+
+{{#if locals.data.length}}
+{{#each locals.data}}
+<p>
+	{{this.score}}
+</p>
+{{/each}}
+{{/if}}
+
 <form action="/logout" method="post">
 	<button type="submit">LOGOUT</button>
 </form>
