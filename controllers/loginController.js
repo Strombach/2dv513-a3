@@ -8,10 +8,14 @@ const loginController = {}
 loginController.getLogin = async (req, res, next) => {
 	res.send('Hello World From LoginController!')
 
-	db.query('SELECT * FROM users', (err, rows, fields) => {
+	db.query('SELECT * FROM users WHERE username = ?', req.body.username, (err, rows, fields) => {
 		if (err) throw err
 
-		console.log(rows)
+		if (rows.length > 0) {
+			console.log(rows)
+		} else {
+			console.log('No user found')
+		}
 	})
 }
 

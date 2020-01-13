@@ -9,4 +9,6 @@ let connection = mysql.createConnection({
 
 connection.connect()
 
+console.log('Database Connected')
+
 module.exports = connection
