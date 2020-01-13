@@ -30,7 +30,8 @@ loginController.checkLoginStatus = (req, res, next) => {
 	if (req.session.loggedIn) {
 		res.send('Welcome Back')
 	} else {
-		next()
+		res.redirect('/')
+		res.status(403)
 	}
 }
 
