@@ -11,14 +11,12 @@ loginController.postLogin = async (req, res, next) => {
 		if (err) throw err
 
 		if (rows.length > 0) {
-			console.log(rows[0].password)
 			if (checkPassword(rows[0], req.body.password)) {
 				res.send('You are logged in<3')
 			} else {
 				res.send('Wrong Password')
 			}
 		} else {
-			console.log('No user found')
 			res.send('No user found')
 		}
 	})
