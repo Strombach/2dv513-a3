@@ -5,8 +5,6 @@ const router = express.Router()
 
 const controller = require('../controllers/homeController')
 
-router.get('/', controller.index)
-
-// router.post('/auth', controller.postLogin)
+router.get('/', controller.checkLoginStatus, controller.index)
 
 module.exports = router
