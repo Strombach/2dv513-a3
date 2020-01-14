@@ -8,10 +8,15 @@ const homeController = {}
 homeController.index = (req, res, next) => {
 	let user = req.session.loggedIn
 
-	db.query('SELECT * FROM scores WHERE uID = ?', user, async (err, rows, fields) => {
+	let query = `SELECT imduh.scores.mID, imduh.scores.score, imduh.movies.name
+	FROM imduh.movies
+	JOIN imduh.scores
+	ON imduh.movies.movieID = imduh.scores.mID
+	AND imduh.scores.uID=?`
+
+	db.query(query, user, async (err, rows, fields) => {
 		if (err) throw err
 		let locals = { data: rows }
-		console.log(locals.data)
 		res.render('home/index', { locals })
 	})
 }
