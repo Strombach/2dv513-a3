@@ -12,8 +12,15 @@ movieController.index = (req, res, next) => {
 
 	db.query(query, movie, async (err, rows, fields) => {
 		if (err) throw err
-		let locals = { data: rows }
-		res.render('movie/index', { locals })
+		let locals = { data: rows[0] }
+
+		let newQuery = 'SELECT average FROM average_score WHERE movieID = ?'
+
+		db.query(newQuery, movie, async (err, rows, fields) => {
+			if (err) throw err
+			locals.average = rows[0].average
+			res.render('movie/index', { locals })
+		})
 	})
 }
 

@@ -1,10 +1,9 @@
 {{#if locals.data.length}}
-{{#each locals.data}}
 <h2>
-	{{this.name}}
+	{{locals.data.name}}
 </h2>
-<h5>Made in: {{this.year}}</h5>
-<p>Length: {{this.length}} minutes</p>
-<p>{{this.description}}</p>
-{{/each}}
+<h5>Made in: {{locals.data.year}}</h5>
+<p>Length: {{locals.data.length}} minutes</p>
+<p>{{locals.data.description}}</p>
+<h4>Average score: {{locals.average}}</h4>
 {{/if}}
