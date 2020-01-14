@@ -41,6 +41,7 @@ app.use(session({
 //Routes
 app.use('/', require('./routes/loginRouter'))
 app.use('/home', require('./routes/homeRouter'))
+app.use('/movie', require('./routes/movieRouter'))
 app.use('/logout', require('./routes/logoutRouter'))
 
 app.listen(expressPort, () => console.log(`Server running on port: ${expressPort}`))

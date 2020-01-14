@@ -1,11 +1,12 @@
-<h1>Test Handlebars</h1>
-
+<h2>My votes</h2>
 {{#if locals.data.length}}
 {{#each locals.data}}
 <p>
 	{{this.score}}, {{this.name}}
 </p>
 {{/each}}
+{{else}}
+<p>No votes yet</p>
 {{/if}}
 
 <form action="/logout" method="post">
