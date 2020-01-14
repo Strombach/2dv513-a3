@@ -6,16 +6,15 @@ const db = require('../database/db')
 const movieController = {}
 
 movieController.index = (req, res, next) => {
-	res.render('movie/index')
-	// let user = req.session.loggedIn
+	let movie = req.query.id
 
-	let query = ''
+	let query = 'SELECT * FROM movies WHERE movieID = ?'
 
-	// db.query(query, user, async (err, rows, fields) => {
-	// 	if (err) throw err
-	// 	let locals = { data: rows }
-	// 	res.render('home/index', { locals })
-	// })
+	db.query(query, movie, async (err, rows, fields) => {
+		if (err) throw err
+		let locals = { data: rows }
+		res.render('movie/index', { locals })
+	})
 }
 
 movieController.checkLoginStatus = (req, res, next) => {

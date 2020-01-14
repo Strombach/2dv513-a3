@@ -1,1 +1,10 @@
-<h1>Hello from movie</h1>
+{{#if locals.data.length}}
+{{#each locals.data}}
+<h2>
+	{{this.name}}
+</h2>
+<h5>Made in: {{this.year}}</h5>
+<p>Length: {{this.length}} minutes</p>
+<p>{{this.description}}</p>
+{{/each}}
+{{/if}}
