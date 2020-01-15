@@ -4,6 +4,11 @@
 ### Fredrik Strömbäck
 
 
+## Prerequisites
+
+* Node installed
+* Npm installed
+
 ## Installation instructions
 
 1. Download source code and SQLdumps from [github](https://github.com/Strombach/2dv513-a3).
