@@ -1,0 +1,14 @@
+{{#if locals.data.length}}
+<table>
+	<tr>
+		<th>Average Score</th>
+		<th>Movie Title</th>
+	</tr>
+	{{#each locals.data}}
+	<tr>
+		<td>{{this.average}}</td>
+		<td><a href="/movie?id={{this.movieID}}">{{this.name}}</a></td>
+	</tr>
+	{{/each}}
+</table>
+{{/if}}

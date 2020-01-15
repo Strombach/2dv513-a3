@@ -6,4 +6,15 @@
 <p>Length: {{locals.data.length}} minutes</p>
 <p>{{locals.data.description}}</p>
 <h4>Average score: {{locals.average}}</h4>
+<form action="/movie" method="POST">
+	<input type="radio" name="score" value="1">1<br>
+	<input type="radio" name="score" value="2">2<br>
+	<input type="radio" name="score" value="3">3<br>
+	<input type="radio" name="score" value="4">4<br>
+	<input type="radio" name="score" value="5">5
+	<input type="hidden" id="movieID" name="movieID" value="{{locals.data.movieID}}">
+	<input type="submit">
+</form>
+
+
 {{/if}}

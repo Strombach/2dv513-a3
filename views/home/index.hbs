@@ -1,15 +1,22 @@
 <h2>My votes</h2>
 {{#if locals.data.length}}
-{{#each locals.data}}
-<p>
-	{{this.score}}
-	<a href="/movie?id={{this.mID}}">{{this.name}}</a>
-</p>
-{{/each}}
+<table>
+	<tr>
+		<th>Your Score</th>
+		<th>Movie Title</th>
+	</tr>
+	{{#each locals.data}}
+	<tr>
+		<td>{{this.score}}</td>
+		<td><a href="/movie?id={{this.mID}}">{{this.name}}</a></td>
+	</tr>
+	{{/each}}
+</table>
+<p>Your total watch time is: {{locals.time}} hours</p>
 {{else}}
 <p>No votes yet</p>
 {{/if}}
-
+<a href="/movie/all">List of All Movies</a>
 <form action="/logout" method="post">
 	<button type="submit">LOGOUT</button>
 </form>
